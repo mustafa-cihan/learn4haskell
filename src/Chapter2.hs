@@ -337,7 +337,7 @@ ghci> :l src/Chapter2.hs
 -}
 subList :: Int -> Int -> [a] -> [a]
 subList left right l
-  | left < 0 || right < 0 || right <= left = []
+  | left < 0 || right < 0 || right < left = []
   | otherwise = take (right - left + 1) (drop left l)
   
 
