@@ -628,7 +628,7 @@ Write a function that takes elements of a list only in even positions.
 [2,3,4]
 -}
 takeEven :: [a] -> [a]
-takeEven n = go True n
+takeEven = go True 
   where
     go :: Bool -> [a] -> [a]
     go _ [] = []
@@ -741,7 +741,7 @@ value of the element itself
 🕯 HINT: Use combination of 'map' and 'replicate'
 -}
 smartReplicate :: [Int] -> [Int]
-smartReplicate l = concatMap (\x -> replicate x x) l
+smartReplicate  = concatMap (\x -> replicate x x)
 
 {- |
 =⚔️= Task 9
@@ -755,7 +755,7 @@ the list with only those lists that contain a passed element.
 🕯 HINT: Use the 'elem' function to check whether an element belongs to a list
 -}
 contains :: Integral a => a -> [[a]] -> [[a]]
-contains x xs = filter (\l -> elem x l)  xs
+contains x  = filter (elem x )  
 
 
 {- |
@@ -795,13 +795,15 @@ Let's now try to eta-reduce some of the functions and ensure that we
 mastered the skill of eta-reducing.
 -}
 divideTenBy :: Int -> Int
-divideTenBy x = div 10 x
+divideTenBy  = div 10 
 
 -- TODO: type ;)
-listElementsLessThan x l = filter (< x) l
+listElementsLessThan :: Integral a => a -> [a] -> [a]
+listElementsLessThan x = filter (< x) 
 
 -- Can you eta-reduce this one???
-pairMul xs ys = zipWith (*) xs ys
+pairMul :: Integral a => [a] -> [a] -> [a]
+pairMul = zipWith (*) 
 
 {- |
 =🛡= Lazy evaluation
